@@ -42,10 +42,8 @@ gulp.task('revJs', function () {
     return gulp.src(jsPath)
         .pipe(rev())
         .pipe(sourcemaps.init())
-        .pipe(babel({
-            presets: ['env']
-        }))
-        //  .pipe(uglify())
+        .pipe(babel())
+        // .pipe(uglify())
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('build/static/js'))
         .pipe(rev.manifest())
