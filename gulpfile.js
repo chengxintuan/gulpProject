@@ -55,7 +55,18 @@ gulp.task('revJs', function () {
 // Html替换css、js文件版本
 gulp.task('revHtml', function () {
     return gulp.src(['build/**/*.json', templePath])
-        .pipe(revCollector())
+        .pipe(revCollector(
+            // {
+            //     replaceReved: true,
+            //     dirReplacements: {
+            //         'css': '/dist/css',
+            //         '/js/': '/dist/js/',
+            //         'cdn/': function (manifest_value) {
+            //             return '//cdn' + (Math.floor(Math.random() * 9) + 1) + '.' + 'exsample.dot' + '/img/' + manifest_value;
+            //         }
+            //     }
+            // }
+        ))
         .pipe(gulp.dest('build/view'));
 });
 
